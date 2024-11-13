@@ -74,7 +74,22 @@ class Creature {
 
 
     
-    
+    //Función para pintar cada ofertas
+    function creatureHTML() {
+        
+        $result = '<div class="col col-sm-12 col-md-6 col-lg-4">';
+        $result .= '<div class="card h-100">';
+        $result .= '<div class="card-body">';
+        $result .= '<h4 class="card-title">' . $this->getName() . '</h4>';
+        $result .= '<p class="card-text">';      
+        $result .= '<img class="img-fluid float-start me-3" src="' . $this->getAvatar() . '" style="width: 200px; height: 260px;" alt="Card image">' . $this->getDescription() . '</p></div>';       
+        $result .= '<div class="card-footer bg-white d-flex justify-content-evenly">';       
+        $result .= '<a href="#" class="btn btn-secondary flex-grow-1 mx-1">Info</a>';//AGREGAR EL LINK A LOS BOTONES       
+        $result .= '<a href="#" class="btn btn-success flex-grow-1 mx-1">Modificar</a>';      
+        $result .= '<a href="#" class="btn btn-danger flex-grow-1 mx-1">Borrar</a>';       
+        $result .=  '</div></div></div>';
+        return $result;
+    }
     
 }
 

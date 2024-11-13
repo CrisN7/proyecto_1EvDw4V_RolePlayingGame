@@ -1,4 +1,22 @@
 <?php
+    /*
+    require_once 'C:\xampp\htdocs\desarrollowebCV\proyecto_Final1EvRolePlayingGame\app\controllers\CreatureController.php';
+    //Recupero de la BD todos las creature a través del creatureController
+    $creatures = new CreatureController();//NO ENTIENDO PORQUE HACE FALTA USAR UN CREATURECONTROLLER COMO INTERMEDIARIO ENTRE EL CREATUREDAO Y ESTE FICHERO.
+    $creatures->readAction();
+    echo var_dump($creatures);
+    */
+    
+
+    //ESTE CODIGO DE ABAJO LO HAGO PORQUE EL CODIGO DE ARRIBA, QUE ES COMO EL CODIGO QUE TIENE LA SOLUCION ARTEAN3 DEL PROFE, NO ME FUNCIONA.
+    require_once 'C:\xampp\htdocs\desarrollowebCV\proyecto_Final1EvRolePlayingGame\app\models\Creature.php';
+    require_once 'C:\xampp\htdocs\desarrollowebCV\proyecto_Final1EvRolePlayingGame\persistence\DAO\CreatureDAO.php';
+    $creatureDAO = new CreatureDAO();
+    $creatures = $creatureDAO->selectAll();
+    //echo var_dump($creatures);
+    foreach($creatures as $x){
+        //echo  $x->getName();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,72 +58,12 @@
 <!-- Content -->
 <div class="container mt-5">
     <div class="row">
-        <div class="col col-sm-12 col-md-6 col-lg-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Nombre criatura 1</h4>
-                    <p class="card-text">
-                        <img class="img-fluid float-start me-3" src="https://w.wallhaven.cc/full/nz/wallhaven-nzxoov.jpg" style="width: 200px; height: 260px;" alt="Card image">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.                    </p>
-                </div>
-                <div class="card-footer bg-white d-flex justify-content-evenly">
-                    <a href="#" class="btn btn-secondary flex-grow-1 mx-1">
-                        Info
-                    </a>
-                    <a href="#" class="btn btn-success flex-grow-1 mx-1">
-                        Modificar
-                    </a>
-                    <a href="#" class="btn btn-danger flex-grow-1 mx-1">
-                        Borrar
-                    </a>
-                </div>
-            </div>
+        <?php
+            for($i = 0; $i < sizeof($creatures); $i++){
+                echo $creatures[$i]->creatureHTML();
+            }
+        ?>
 
-        </div>
-        <div class="col col-sm-12 col-md-6 col-lg-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Nombre criatura 2</h4>
-                    <p class="card-text">
-                        <img class="img-fluid float-start me-3" src="https://w.wallhaven.cc/full/nz/wallhaven-nzxoov.jpg" style="width: 200px; height: 260px;" alt="Card image">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.                    </p>
-                </div>
-                <div class="card-footer bg-white d-flex justify-content-evenly">
-                    <a href="#" class="btn btn-secondary flex-grow-1 mx-1">
-                        Info
-                    </a>
-                    <a href="#" class="btn btn-success flex-grow-1 mx-1">
-                        Modificar
-                    </a>
-                    <a href="#" class="btn btn-danger flex-grow-1 mx-1">
-                        Borrar
-                    </a>
-                </div>
-            </div>
-
-        </div>
-        <div class="col col-sm-12 col-md-6 col-lg-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Nombre criatura 3</h4>
-                    <p class="card-text">
-                        <img class="img-fluid float-start me-3" src="https://w.wallhaven.cc/full/nz/wallhaven-nzxoov.jpg" style="width: 200px; height: 260px;" alt="Card image">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.                    </p>
-                </div>
-                <div class="card-footer bg-white d-flex justify-content-evenly">
-                    <a href="#" class="btn btn-secondary flex-grow-1 mx-1">
-                        Info
-                    </a>
-                    <a href="#" class="btn btn-success flex-grow-1 mx-1">
-                        Modificar
-                    </a>
-                    <a href="#" class="btn btn-danger flex-grow-1 mx-1">
-                        Borrar
-                    </a>
-                </div>
-            </div>
-
-        </div>
     </div>
 </div>
 

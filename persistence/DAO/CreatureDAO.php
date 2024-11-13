@@ -1,6 +1,11 @@
 <?php
 
-require_once(dirname(__FILE__) . "../conf/PersistentManager.php");
+//require_once(dirname(__FILE__) . "../conf/PersistentManager.php");
+require_once 'C:\xampp\htdocs\desarrollowebCV\proyecto_Final1EvRolePlayingGame\persistence\conf\PersistentManager.php';
+
+
+//ESTE REQUIRE LO HAGO PORQUE SINO ME SALTA ERROR EN LA LINEA 41, DICIENDO QUE NO PUEDE ACCEDER A LA CLASE Creature
+require_once 'C:\xampp\htdocs\desarrollowebCV\proyecto_Final1EvRolePlayingGame\app\models\Creature.php';
 
 class CreatureDAO {
     
@@ -51,7 +56,8 @@ class CreatureDAO {
     
     
     public function insert($creature){
-        $query = "INSERTO INTO " . CreatureDAO::TABLE . " (name, description, avatar, attackPower, lifeLevel, weapon) VALUES(?, ?, ?, ?, ?, ?)";//ENTENDER ESTA SINTAXIS. Descripcion TECNICA de esta linea: creamos una CONSULTA PARAMETRIZADA
+        echo "echo desde el insert de creatureDAO";
+        $query = "INSERT INTO " . CreatureDAO::TABLE . " (name, description, avatar, attackPower, lifeLevel, weapon) VALUES(?, ?, ?, ?, ?, ?)";//ENTENDER ESTA SINTAXIS. Descripcion TECNICA de esta linea: creamos una CONSULTA PARAMETRIZADA
         $statement = mysqli_prepare($this->connection, $query);
         
         //Creamos las variables que vamos a usar para inicializar los parametros de la consulta parametrizada

@@ -28,7 +28,7 @@
 <div class="mt-5 mx-auto" style="width: 700px;">
     <div class="row">
         
-        <form id="creatureForm" method="POST" action="#">
+        <form id="creatureForm" method="POST" action="../controllers/insertCreatureController.php">
             <div class="form-group d-flex">
                 <label for="name" id="name-label">Name: </label>
                 <input type="text" placeholder="Name" id="name" class="ms-3 mb-3 flex-grow-1" name="name" required/>
