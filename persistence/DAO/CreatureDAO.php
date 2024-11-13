@@ -43,7 +43,7 @@ class CreatureDAO {
         $creatures = array();//tambien podriamos hacer esto " = []; "
         while($creatureBD = mysqli_fetch_array($result)){
             $creature = new Creature();
-            
+            echo $creatureBD["idCreature"];
             $creature->setIdCreature($creatureBD["idCreature"]);
             $creature->setName($creatureBD["name"]);
             $creature->setDescription($creatureBD["description"]);
@@ -56,7 +56,6 @@ class CreatureDAO {
     
     
     public function insert($creature){
-        echo "echo desde el insert de creatureDAO";
         $query = "INSERT INTO " . CreatureDAO::TABLE . " (name, description, avatar, attackPower, lifeLevel, weapon) VALUES(?, ?, ?, ?, ?, ?)";//ENTENDER ESTA SINTAXIS. Descripcion TECNICA de esta linea: creamos una CONSULTA PARAMETRIZADA
         $statement = mysqli_prepare($this->connection, $query);
         
@@ -71,6 +70,30 @@ class CreatureDAO {
         mysqli_stmt_bind_param($statement, 'sssiis', $name, $description, $avatar, $attackPower, $lifeLevel, $weapon);
         return $statement->execute();
     }
+    
+    public function selectById($id) {
+        $query = "SELECT * FROM " . CreatureDAO::TABLE . " WHERE idCreature=?";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, 'i', $id);
+        mysqli_stmt_execute($stmt);
+        //mysqli_stmt_bind_result($stmt, $email, $password);//NOSE QUE HACE ESTO
+
+        mysqli_stmt_bind_result($stmt, $idCreature, $name, $description, $avatar, $attackPower, $lifeLevel, $weapon);
+        $creature = new Creature();
+        
+        if (mysqli_stmt_fetch($stmt)) {
+            $creature->setIdCreature($idCreature);
+            $creature->setName($name);
+            $creature->setDescription($description);
+            $creature->setAvatar($avatar);
+            $creature->setAttackPower($attackPower);
+            $creature->setLifeLevel($lifeLevel);
+            $creature->setWeapon($weapon);
+        }
+        return $creature;
+    }
+    
+    
     
     
     public function delete($idCreature){

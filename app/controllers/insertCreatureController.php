@@ -1,13 +1,14 @@
 <?php
 
 //echo dirname(__FILE__) . "../../../persistence/DAO/CreatureDAO.php";
-require_once("C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/persistence/DAO/CreatureDAO.php");
-require_once("C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/models/Creature.php");
-require_once("C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/models/validations/ValidationsRules.php");
 
-//require_once(dirname(__FILE__) . "/../../../../persistence/DAO/CreatureDAO.php");
-//require_once(dirname(__FILE__) . "../../models/Creature.php");
-//require_once(dirname(__FILE__) . "../../models/validations/ValidationsRules.php");
+////require_once("C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/persistence/DAO/CreatureDAO.php");
+//require_once("C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/models/Creature.php");
+//require_once("C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/models/validations/ValidationsRules.php");
+
+require_once(dirname(__FILE__) . "/../../persistence/DAO/CreatureDAO.php");
+require_once(dirname(__FILE__) . "/../models/Creature.php");
+require_once(dirname(__FILE__) . "/../models/validations/ValidationsRules.php");
 
 
 

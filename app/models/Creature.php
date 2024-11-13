@@ -45,7 +45,7 @@ class Creature {
     }
 
     public function setIdCreature($idCreature){//: void { ENTENDER ESTO QUE ESTABA ORIGINALMENTE
-        $this->name = $idCreature;
+        $this->idCreature = $idCreature;
     }
     
     public function setName($name){//: void { ENTENDER ESTO QUE ESTABA ORIGINALMENTE
@@ -77,6 +77,9 @@ class Creature {
     //Función para pintar cada ofertas
     function creatureHTML() {
         
+        $formPath = ((dirname(__FILE__)."/formInsertCreature.php"));
+        
+        
         $result = '<div class="col col-sm-12 col-md-6 col-lg-4">';
         $result .= '<div class="card h-100">';
         $result .= '<div class="card-body">';
@@ -85,8 +88,8 @@ class Creature {
         $result .= '<img class="img-fluid float-start me-3" src="' . $this->getAvatar() . '" style="width: 200px; height: 260px;" alt="Card image">' . $this->getDescription() . '</p></div>';       
         $result .= '<div class="card-footer bg-white d-flex justify-content-evenly">';       
         $result .= '<a href="#" class="btn btn-secondary flex-grow-1 mx-1">Info</a>';//AGREGAR EL LINK A LOS BOTONES       
-        $result .= '<a href="#" class="btn btn-success flex-grow-1 mx-1">Modificar</a>';      
-        $result .= '<a href="#" class="btn btn-danger flex-grow-1 mx-1">Borrar</a>';       
+        $result .= '<a href="' . $formPath .'?id=' . $this->getIdCreature() . '" class="btn btn-success flex-grow-1 mx-1">Modificar</a>';      
+        $result .= '<a href="C:\xampp\htdocs\desarrollowebCV\proyecto_Final1EvRolePlayingGame\app\controllers\CreatureController.php?id=' . $this->getIdCreature() . '" class="btn btn-danger flex-grow-1 mx-1">Borrar</a>';       
         $result .=  '</div></div></div>';
         return $result;
     }
