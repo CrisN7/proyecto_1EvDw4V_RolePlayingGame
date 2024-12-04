@@ -1,15 +1,15 @@
 <?php
+//EL CODIGO DE ESTE FICHERO LO TENGO QUE CAMBIAR Y UNIFICAR EN UN UNICO CONTROLLER, COMO LO TIENE LA SOLUCION DEL PROFE
 
 //echo dirname(__FILE__) . "../../../persistence/DAO/CreatureDAO.php";
 
-////require_once("C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/persistence/DAO/CreatureDAO.php");
+//require_once("C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/persistence/DAO/CreatureDAO.php");
 //require_once("C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/models/Creature.php");
 //require_once("C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/models/validations/ValidationsRules.php");
 
 require_once(dirname(__FILE__) . "/../../persistence/DAO/CreatureDAO.php");
 require_once(dirname(__FILE__) . "/../models/Creature.php");
 require_once(dirname(__FILE__) . "/../models/validations/ValidationsRules.php");
-
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -39,11 +39,7 @@ function createAction(){
     $creatureDAO = new CreatureDAO();
     $creatureDAO->insert($creature);
     
-    header('Location: ../views/index.php');  
-    
-
-    
-    
+    header('Location: ../views/index.php');
 }
 
 ?>

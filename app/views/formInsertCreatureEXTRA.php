@@ -54,34 +54,53 @@
 <div class="mt-5 mx-auto" style="width: 700px;">
     <div class="row">
         <form id="creatureForm" method="POST" action="../controllers/insertCreatureController.php">
-            <input type="hidden" name="type" value="create">
             <div class="form-group d-flex">
                 <label for="name" id="name-label">Name: </label>
-                <input type="text" placeholder="Name" id="name" class="ms-3 mb-3 flex-grow-1" name="name" required/>
+                <input type="text" placeholder="Name" id="name" class="ms-3 mb-3 flex-grow-1" name="name" value="<?php
+                if(isset($_GET['id'])){echo $name;}?>" required/>
             </div>
             <div class="form-group d-flex">
                 <label for="description" id="name-label">Description: </label>
-                <input type="text" placeholder="Description" id="" class="ms-3 mb-3 flex-grow-1" name="description" required/>
+                <input type="text" placeholder="Description" id="" class="ms-3 mb-3 flex-grow-1" name="description" value="<?php
+                if(isset($_GET['id'])){echo $description;}?>" required/>
             </div>
             <div class="form-group d-flex">
                 <label for="avatar" id="name-label">Avatar: </label>
-                <input type="text" placeholder="Avatar" id="" class="ms-3 mb-3 flex-grow-1" name="avatar" required/>
+                <input type="text" placeholder="Avatar" id="" class="ms-3 mb-3 flex-grow-1" name="avatar" value="<?php
+                if(isset($_GET['id'])){echo $avatar;}?>" required/>
             </div>
             <div class="form-group d-flex">
                 <label for="attackPower" id="name-label">Attack Power: </label>
-                <input type="text" placeholder="Attack Power" id="" class="ms-3 mb-3 flex-grow-1" name="attackPower" required/>
+                <input type="text" placeholder="Attack Power" id="" class="ms-3 mb-3 flex-grow-1" name="attackPower" value="<?php
+                if(isset($_GET['id'])){echo $attackPower;}?>" required/>
             </div>
             <div class="form-group d-flex">
                 <label for="lifeLevel" id="name-label">Life Level: </label>
-                <input type="text" placeholder="Life Level" id="" class="ms-3 mb-3 flex-grow-1" name="lifeLevel" required/>
+                <input type="text" placeholder="Life Level" id="" class="ms-3 mb-3 flex-grow-1" name="lifeLevel" value="<?php
+                if(isset($_GET['id'])){echo $lifeLevel;}?>" required/>
             </div>
             <div class="form-group d-flex">
                 <label for="weapon" id="name-label">Weapon: </label>
-                <input type="text" placeholder="Weapon" id="" class="ms-3 mb-3 flex-grow-1" name="weapon" required/>
+                <input type="text" placeholder="Weapon" id="" class="ms-3 mb-3 flex-grow-1" name="weapon" value="<?php
+                if(isset($_GET['id'])){echo $weapon;}?>" required/>
             </div>
-            <div class="form-group">
-                <input class="btn btn-success" type="submit" id="submit" value="Crear"/>
-            </div>
+            <?php
+            if(isset($_GET["id"])){
+                $controllerFullPath = dirname(__FILE__);
+                $controllerRelativePath = str_replace('C:\\xampp\\htdocs\\', 'http://localhost/', $controllerFullPath);
+                
+                //Aca lo que pensaba hacer era borrar la parte de id="id" del link para ponerlo directamente en un input hidden como lo tiene el profe, loque pasa es que el profe tiene un form especifico para cada accion (insertar, editar). Si lo hago como lo tiene el, el input hidden seguiria estando ahi aunque estemos en el form de insertar/crear creature.
+                //Al final si termine poniendo el input hidden con el id, porque en el metodo editAction(que lo copie del profe) extrae el id del formulario, NO lo pasa por parametro de url.
+                echo '<input type="hidden" name="id" value="'.$id.'" required/>
+                    <div class="form-group">
+                      <a type="button" class="btn btn-success" href="'.$controllerRelativePath.'/../controllers/CreatureController.php?accion=editar">Modificar</a>
+                      </div>';
+            } else {
+                echo '<div class="form-group">
+                        <input class="btn btn-success" type="submit" id="submit" value="Crear"/>
+                      </div>';
+            }
+            ?>
         </form>
         
     </div>

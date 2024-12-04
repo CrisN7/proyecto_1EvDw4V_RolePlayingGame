@@ -43,7 +43,7 @@ class CreatureDAO {
         $creatures = array();//tambien podriamos hacer esto " = []; "
         while($creatureBD = mysqli_fetch_array($result)){
             $creature = new Creature();
-            echo $creatureBD["idCreature"];
+            //echo $creatureBD["idCreature"];
             $creature->setIdCreature($creatureBD["idCreature"]);
             $creature->setName($creatureBD["name"]);
             $creature->setDescription($creatureBD["description"]);
@@ -93,11 +93,27 @@ class CreatureDAO {
         return $creature;
     }
     
+    public function update($creature) {
+        $query = "UPDATE " .CreatureDAO::TABLE.
+                " SET name=?, description=?, avatar=?, attackPower=?, lifeLevel=?, weapon=?"
+                . " WHERE idCreature=?";
+        $stmt = mysqli_prepare($this->connection, $query);
+        $id = $creature->getIdCreature();
+        $name = $creature->getName();
+        $description = $creature->getDescription();
+        $avatar = $creature->getAvatar();
+        $attackPower = $creature->getAttackPower();
+        $lifeLevel = $creature->getLifeLevel();
+        $weapon = $creature->getWeapon();
+
+        mysqli_stmt_bind_param($stmt, 'sssiisi', $name, $description, $avatar, $attackPower, $lifeLevel, $weapon, $id);
+        return $stmt->execute();
+    }
     
     
     
     public function delete($idCreature){
-        $query = "DELETE FROM " . CreatureDAO::TABLE . " WHERE idCreature=?";//VER SI FUNCION " . $idCreature"
+        $query = "DELETE FROM " . CreatureDAO::TABLE . " WHERE idCreature=?";//VER SI FUNCIONA " . $idCreature"
         $statement = mysqli_prepare($this->connection, $query);
         mysqli_stmt_bind_param($statement, "i", $idCreature);
         

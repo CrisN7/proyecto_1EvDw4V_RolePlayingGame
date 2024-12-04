@@ -10,9 +10,11 @@
 
     //ESTE CODIGO DE ABAJO LO HAGO PORQUE EL CODIGO DE ARRIBA, QUE ES COMO EL CODIGO QUE TIENE LA SOLUCION ARTEAN3 DEL PROFE, NO ME FUNCIONA.
     //require_once 'C:\xampp\htdocs\desarrollowebCV\proyecto_Final1EvRolePlayingGame\app\models\Creature.php';
-    require_once(dirname(__FILE__) . '/../models/Creature.php');
 
+    require_once(dirname(__FILE__) . '/../models/Creature.php');
+    
     require_once 'C:\xampp\htdocs\desarrollowebCV\proyecto_Final1EvRolePlayingGame\persistence\DAO\CreatureDAO.php';
+    
     $creatureDAO = new CreatureDAO();
     $creatures = $creatureDAO->selectAll();
 ?>

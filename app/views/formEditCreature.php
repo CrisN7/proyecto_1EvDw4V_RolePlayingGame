@@ -53,34 +53,39 @@
 <!-- Content -->
 <div class="mt-5 mx-auto" style="width: 700px;">
     <div class="row">
-        <form id="creatureForm" method="POST" action="../controllers/insertCreatureController.php">
-            <input type="hidden" name="type" value="create">
+        <form id="creatureForm" method="POST" action="../controllers/CreatureController.php">
+            <input type="hidden" name="type" value="edit">
             <div class="form-group d-flex">
                 <label for="name" id="name-label">Name: </label>
-                <input type="text" placeholder="Name" id="name" class="ms-3 mb-3 flex-grow-1" name="name" required/>
+                <input type="text" placeholder="Name" id="name" class="ms-3 mb-3 flex-grow-1" name="name" value="<?php echo $name;?>" required/>
             </div>
             <div class="form-group d-flex">
                 <label for="description" id="name-label">Description: </label>
-                <input type="text" placeholder="Description" id="" class="ms-3 mb-3 flex-grow-1" name="description" required/>
+                <input type="text" placeholder="Description" id="" class="ms-3 mb-3 flex-grow-1" name="description" value="<?php echo $description;?>" required/>
             </div>
             <div class="form-group d-flex">
                 <label for="avatar" id="name-label">Avatar: </label>
-                <input type="text" placeholder="Avatar" id="" class="ms-3 mb-3 flex-grow-1" name="avatar" required/>
+                <input type="text" placeholder="Avatar" id="" class="ms-3 mb-3 flex-grow-1" name="avatar" value="<?php
+                echo $avatar;?>" required/>
             </div>
             <div class="form-group d-flex">
                 <label for="attackPower" id="name-label">Attack Power: </label>
-                <input type="text" placeholder="Attack Power" id="" class="ms-3 mb-3 flex-grow-1" name="attackPower" required/>
+                <input type="text" placeholder="Attack Power" id="" class="ms-3 mb-3 flex-grow-1" name="attackPower" value="<?php
+                echo $attackPower;?>" required/>
             </div>
             <div class="form-group d-flex">
                 <label for="lifeLevel" id="name-label">Life Level: </label>
-                <input type="text" placeholder="Life Level" id="" class="ms-3 mb-3 flex-grow-1" name="lifeLevel" required/>
+                <input type="text" placeholder="Life Level" id="" class="ms-3 mb-3 flex-grow-1" name="lifeLevel" value="<?php
+                echo $lifeLevel;?>" required/>
             </div>
             <div class="form-group d-flex">
                 <label for="weapon" id="name-label">Weapon: </label>
-                <input type="text" placeholder="Weapon" id="" class="ms-3 mb-3 flex-grow-1" name="weapon" required/>
+                <input type="text" placeholder="Weapon" id="" class="ms-3 mb-3 flex-grow-1" name="weapon" value="<?php
+                echo $weapon;?>" required/>
             </div>
+            <input type="hidden" name="id" value="<?php echo $id?>"/>
             <div class="form-group">
-                <input class="btn btn-success" type="submit" id="submit" value="Crear"/>
+                <input type="submit" class="btn btn-success" value="Modificar"/>
             </div>
         </form>
         

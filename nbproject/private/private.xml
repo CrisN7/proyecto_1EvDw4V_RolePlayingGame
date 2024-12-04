@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/index.php</file>
-            <file>file:/C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/persistence/conf/credentials.json</file>
-            <file>file:/C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/persistence/conf/PersistentManager.php</file>
+            <file>file:/C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/views/formEditCreature.php</file>
+            <file>file:/C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/controllers/insertCreatureController.php</file>
+            <file>file:/C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/views/formInsertCreature.php</file>
+            <file>file:/C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/models/Creature.php</file>
+            <file>file:/C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/controllers/CreatureController.php</file>
             <file>file:/C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/app/views/index.php</file>
+            <file>file:/C:/xampp/htdocs/desarrollowebCV/proyecto_Final1EvRolePlayingGame/persistence/DAO/CreatureDAO.php</file>
         </group>
     </open-files>
 </project-private>

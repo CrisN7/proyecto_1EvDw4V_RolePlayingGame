@@ -3,10 +3,27 @@
 require_once 'C:\xampp\htdocs\desarrollowebCV\proyecto_Final1EvRolePlayingGame\persistence\DAO\CreatureDAO.php';
 
 
+
+$_CreatureController = new CreatureController();
+
+//Esto creo que nunca se va a cumplir porque el formulario tiene un POST, a no ser que lo cambie cuando vaya al form desde el boton modificar. Creo que la parte del requestmethod==get esta al pedo, porque si le paso el parametro id por la url, se "transformaria a un get", segun yo.
+//Este codigo de abajo creo que lo copie de como tiene el offercontroller la solucion del profe, igual le falta el else.
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
-    
-    $_CreatureController = new CreatureController();
-    $_CreatureController->deleteAction();
+        $_CreatureController->deleteAction();
+}
+
+
+// Enrutamiento de las acciones
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //if ($_POST["type"] == "create"){
+    //    $_CreatureController->createAction();
+    //}
+    if ($_POST["type"] == "edit"){
+        $_CreatureController->editAction();
+    }
+    //else if ($_POST["type"] == "apply"){
+    //    $_offerController->applyAction(SessionUtils::getIdUser());
+    //}
 }
 
 
@@ -25,7 +42,7 @@ class CreatureController {
         return $creatureDAO->selectAll();
     }
     
-    // Función encargada de crear nuevas ofertas
+    // Función encargada de actualizar las creature
     function editAction() {
         // Obtención de los valores del formulario y validación
         $idCreature = $_POST["id"];
@@ -50,7 +67,7 @@ class CreatureController {
         $creatureDAO = new CreatureDAO();
         $creatureDAO->update($creature);
 
-        header('Location: ../../../index.php');
+        header('Location: ../views/index.php');
     }
     
     
@@ -60,7 +77,7 @@ class CreatureController {
         $creatureDAO = new CreatureDAO();
         $creatureDAO->delete($id);
 
-        header('Location: ../../views/index.php');
+        header('Location: ../views/index.php');
     }
 }
 
